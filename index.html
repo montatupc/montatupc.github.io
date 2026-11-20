@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="dq5tBWgtPu-hTM8mQJo9DRWYYe4eFHyeZmfilqfNpAU">
+<title>MontaTuPC: qué PC comprar con tu presupuesto</title>
+<meta name="description" content="Dime cuánto tienes y para qué lo quieres y te digo qué PC comprar, pieza a pieza, con precios, FPS en tus juegos y compatibilidad comprobada.">
+<link rel="canonical" href="https://montatupc.github.io/">
+<meta name="theme-color" content="#d4cbb8">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="MontaTuPC">
+<meta property="og:title" content="MontaTuPC: qué PC comprar con tu presupuesto">
+<meta property="og:description" content="Dime cuánto tienes y para qué lo quieres y te digo qué PC comprar, pieza a pieza, con precios, FPS en tus juegos y compatibilidad comprobada.">
+<meta property="og:url" content="https://montatupc.github.io/">
+<meta property="og:image" content="https://montatupc.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/karla-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>/* Hallmark · shape: kept (herramienta de una pantalla) · genre: playful · theme: Werkstatt (deal 1/3, seed herramienta-para-elegir-comprar-d80f·82049a27·2026-11-20·r0) · redesign: full
+ * hero: Settled, titular a la izquierda y el test a la derecha · nav: kept · footer: kept · imagery: none · signature: las seis formas de comprar como rejilla de celdas con su color · werkstatt: putty
+ * axes: mid/geometric-sans/cool · posture: full-palette · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P2 H2 E2 S2 R2 V2 · weakest: R, la página es una herramienta y no lleva fotos; el color codifica las formas de comprar */
+@font-face{font-family:'Jost';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/jost-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/jost-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Karla';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/karla-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Karla';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/karla-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Karla';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/karla-latin-700-normal.woff2) format('woff2')}
+:root{
+--paper:oklch(84% 0.024 82);--paper-2:oklch(79.5% 0.028 80);--paper-3:oklch(89.5% 0.018 84);
+--ink:oklch(18% 0.008 60);--ink-2:oklch(27% 0.01 60);--rule:oklch(58% 0.022 72);
+--accent-2-deep:oklch(50% 0.19 31);--accent-3:oklch(85% 0.165 92);--accent-ink:oklch(96% 0.012 82);
+--bg:var(--paper);--panel:var(--paper);--panel-2:var(--paper-3);--line:var(--rule);--text:var(--ink);--muted:oklch(39% 0.014 62);
+--accent:oklch(46% 0.2 264);--accent-2:var(--ink);--good:var(--accent);--bad:var(--accent-2-deep);--warn:var(--accent-2-deep);
+--rgb:var(--accent-3);
+--display:"Jost","Futura",sans-serif;--body:"Karla",ui-sans-serif,system-ui,sans-serif;
+--rule-hair:1px;--rule-bar:2px;--rule-box:3px;
+color-scheme:light;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.5;padding:0 0 40px}
+a{color:var(--accent-2)}
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:2px}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@keyframes flow{to{background-position:200% 0}}
+.top{position:relative;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:16px max(20px,calc((100% - 920px)/2 + 20px))}
+.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--rgb);background-size:200% 100%;animation:flow 8s linear infinite}
+.logo{font-family:var(--display);font-weight:700;font-size:1.3rem;letter-spacing:-.02em;color:var(--text);text-decoration:none}
+.top .date{font-size:.85rem;color:var(--muted)}
+.sheet{max-width:920px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:start;
+grid-template-areas:"head" "intro" "answers" "form" "result" "games" "ready" "vs" "faq" "about"}
+.vs-links{grid-area:vs;background:var(--panel);border:var(--rule-bar) solid var(--ink);border-radius:0;padding:20px 22px}
+.vs-links h2{margin:0 0 10px;font-size:1.1rem}
+.vs-links ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px 16px}
+.vs-links a{color:var(--text);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;display:inline-block;padding:5px 0}
+.vs-links a:hover{text-decoration-color:var(--accent)}
+.answers{grid-area:answers}
+body:not(.quiz) .form{display:none}
+body.quiz .answers{display:none}
+body.quiz .sheet{min-height:100vh}
+body.rank-mode .answers,body.rank-mode .form,body.rank-mode .games{display:none!important}
+.rk-controls{display:grid;gap:10px;margin:6px 0 4px}
+.rk-opts .opt{padding:7px 12px;font-size:.86rem}
+.rk-list{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.rk-row{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:12px 14px;border-radius:0;background:var(--panel-2);border:var(--rule-bar) solid var(--ink)}
+.rk-row.first{border-color:var(--accent)}
+.rk-n{font-family:var(--display);font-weight:700;font-size:1.15rem;color:var(--muted);text-align:center}
+.rk-row.first .rk-n{color:var(--accent-2)}
+.rk-name{margin:0;font-weight:700;display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.rk-sub{margin:2px 0 6px;color:var(--muted);font-size:.84rem}
+.rk-bars{display:grid;grid-template-columns:auto 1fr 30px;gap:4px 8px;align-items:center;max-width:360px}
+.rk-lab{font-size:.78rem;color:var(--muted)}
+.rk-bars b{font-size:.82rem;text-align:right}
+.rk-badge{font-size:.72rem;font-weight:700;padding:3px 7px;border-radius:0;background:var(--paper-3);color:var(--ink);border:1px solid var(--ink)}
+.rk-badge.top{background:var(--paper-3);color:var(--ink);border-color:var(--ink)}
+.rk-side{display:grid;gap:6px;justify-items:end;text-align:right}
+.rk-price{font-weight:700;white-space:nowrap}
+.rk-side .buy{margin:0}
+@media (max-width:640px){.rk-row{grid-template-columns:28px 1fr}.rk-side{grid-column:2;justify-items:start;text-align:left}}
+.sheet>h1{grid-area:head}
+.sheet>.intro{grid-area:intro}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2rem,4.8vw,3.4rem);line-height:1.05;letter-spacing:-.04em;margin:34px 0 0;max-width:17ch;text-wrap:balance}
+.intro{color:var(--muted);max-width:60ch;margin:-6px 0 8px}
+.form{grid-area:form;background:var(--panel);border:var(--rule-bar) solid var(--ink);border-radius:0;padding:20px;display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.q{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;min-width:0}
+.qlab{font-family:var(--display);font-weight:600;font-size:.98rem}
+.qhint{display:block;font-family:var(--body);font-weight:400;font-size:.84rem;color:var(--muted)}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{display:inline-flex;align-items:center;border:var(--rule-bar) solid var(--ink);background:var(--panel-2);color:var(--text);border-radius:0;padding:8px 13px;font:inherit;font-weight:600;font-size:.9rem;cursor:pointer;text-align:left;line-height:1.2;transition:text-decoration-thickness .12s}
+.opt .box,.opt small{display:none}
+.opt:hover{border-color:var(--ink)}
+.opt[aria-pressed="true"]{border-color:var(--accent);background:var(--paper-3);box-shadow:none}
+#modes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#modes .opt{display:block;padding:11px 12px}
+#modes .opt small{display:block;font-weight:400;font-size:.78rem;color:var(--muted);margin-top:3px}
+.budget-wrap{display:grid;gap:2px}
+.budget{font-family:var(--display);font-weight:700;font-size:2.5rem;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--accent);margin:10px 0 0}
+.scale{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem}
+.other{flex-basis:100%}
+.other input,.pick input,.upgrid select{display:block;width:100%;font:inherit;border:var(--rule-bar) solid var(--ink);border-radius:0;background:var(--panel-2);color:var(--text);padding:9px 12px;margin-top:4px}
+.other input:focus,.pick input:focus{border-color:var(--accent);outline:none}
+.other p{margin:6px 0 0;font-size:.86rem;color:var(--muted)}
+.upgrid{display:grid;gap:12px}
+.upgrid label,.pick label{font-size:.85rem;color:var(--muted);font-weight:600}
+.pick-note{margin:4px 0 0;font-size:.84rem;color:var(--good);min-height:1em}
+.sugg{list-style:none;margin:6px 0 0;padding:4px;background:var(--panel-2);border:1px solid var(--ink);border-radius:0;box-shadow:none}
+.sugg button{display:block;width:100%;text-align:left;background:none;border:0;border-radius:0;font:inherit;color:var(--text);padding:8px 10px;cursor:pointer}
+.sugg button:hover,.sugg button:focus-visible,.sugg button.first{background:var(--paper-3)}
+.upfoot{margin:0}
+.pricelab{display:grid;gap:4px;font-family:var(--display);font-weight:600;font-size:.98rem}
+.priceinp{display:flex;align-items:center;gap:8px}
+.priceinp input{width:100%;font-family:var(--display);font-weight:700;font-size:1.8rem;color:var(--text);background:var(--panel-2);border:var(--rule-bar) solid var(--ink);border-radius:0;padding:6px 12px}
+.priceinp input:focus{border-color:var(--accent);outline:none}
+.priceinp span{font-family:var(--display);font-size:1.6rem;color:var(--muted)}
+.result,.cblock,.ready,.about{background:var(--panel);border:var(--rule-bar) solid var(--ink);border-radius:0;padding:22px}
+.result-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.result-head h2{font-family:var(--display);font-weight:600;font-size:1.1rem;color:var(--muted);margin:0}
+.total{font-family:var(--display);font-weight:700;font-size:2.6rem;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;text-align:right}
+.total-sub{color:var(--muted);font-size:.86rem;text-align:right;max-width:40ch}
+.specbar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:16px 0 0}
+.specbar div{background:var(--panel-2);border:var(--rule-bar) solid var(--ink);border-radius:0;padding:10px 12px;min-width:0}
+.specbar span{display:block;font-size:.76rem;color:var(--muted)}
+.specbar b{display:block;font-family:var(--display);font-weight:600;font-size:.95rem;line-height:1.25;overflow-wrap:anywhere}
+.specbar .hot{border-color:transparent;background:linear-gradient(var(--panel-2),var(--panel-2)) padding-box,var(--rgb) border-box;border:1px solid transparent}
+.topbuy{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-top:14px}
+.verdict{margin:16px 0 4px;font-weight:600}
+.rows{list-style:none;margin:8px 0 0;padding:0}
+.row{display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:6px 16px;padding:16px 0;border-top:1px solid var(--line);align-items:center}
+.row .kind{color:var(--muted);font-size:.85rem;font-weight:600}
+.row select{appearance:none;-webkit-appearance:none;width:100%;border:var(--rule-bar) solid var(--ink);border-radius:0;background:var(--panel-2);color:var(--text);font:inherit;font-weight:700;padding:9px 32px 9px 12px;cursor:pointer;
+background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+background-position:calc(100% - 16px) 55%,calc(100% - 11px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+.row .name{font-weight:700}
+.row .price{font-family:var(--display);font-weight:600;font-size:1.05rem;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.specs{grid-column:2 / 4;display:flex;flex-wrap:wrap;gap:6px}
+.specs span{font-size:.78rem;font-weight:600;color:var(--ink-2);background:var(--panel-2);border:var(--rule-bar) solid var(--ink);border-radius:0;padding:2px 8px}
+.row .why{grid-column:2 / 4;margin:0;color:var(--muted);font-size:.92rem}
+.row.key{position:relative;margin:6px 0;padding:16px 14px;border:1px solid transparent;border-radius:0;background:linear-gradient(var(--paper-3),var(--paper-3)) padding-box,var(--rgb) border-box}
+.row.key+.row{border-top-color:transparent}
+.key-note{grid-column:2 / 4;justify-self:start;margin:0;font-size:.8rem;font-weight:700;color:var(--ink)}
+.buy{grid-column:2 / 4;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin-top:6px}
+.btn-buy{display:inline-block;background:var(--ink);color:var(--paper)!important;text-decoration:none!important;font-weight:700;font-size:.9rem;padding:9px 15px;border-radius:0;transition:text-decoration-thickness .12s}
+.btn-buy:hover{background:var(--ink-2)}
+.btn-alt{font-weight:700;font-size:.9rem;color:var(--text)}
+.outside{font-family:var(--display);font-weight:600;font-size:1.05rem;margin:22px 0 0}
+.details{display:grid;gap:14px;margin-top:8px;padding-top:16px;border-top:1px solid var(--line)}
+.checks{display:grid;gap:3px}
+.check{display:flex;gap:10px;align-items:baseline;font-size:.88rem;color:var(--muted)}
+.tick{flex:none;width:16px;text-align:center;font-weight:700}
+.share{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.share-btn{font:inherit;font-weight:700;font-size:.86rem;background:transparent;color:var(--text);border:var(--rule-bar) solid var(--ink);border-radius:0;padding:8px 12px;cursor:pointer}
+.share-btn:hover{border-color:var(--accent)}
+.share a{font-weight:700;font-size:.86rem;color:var(--text)}
+#shareMsg{font-size:.84rem;color:var(--good)}
+.sticky{margin:16px 0 4px;padding:16px 18px;background:var(--panel-2);border:var(--rule-bar) solid var(--ink);border-radius:0}
+.sticky h3{font-family:var(--display);font-weight:600;font-size:1rem;margin:0 0 6px}
+.sticky p,.sticky li{font-size:.92rem;color:var(--ink-2)}
+.sticky p{margin:0 0 8px}
+.sticky ul{margin:4px 0 10px;padding-left:18px}
+.sticky .go{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.empty{margin:14px 0 0;max-width:56ch;color:var(--ink-2)}
+.warn-note{color:var(--warn);margin-top:14px;max-width:60ch;font-weight:600}
+.pverdict{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0 8px;padding:16px 18px;border-radius:0;border:var(--rule-bar) solid var(--ink);background:var(--panel-2)}
+.pv-label{font-family:var(--display);font-weight:700;font-size:1.6rem;letter-spacing:-.02em;line-height:1.1}
+.pv-price{font-family:var(--display);font-weight:600;font-size:1.4rem}
+.pv-good .pv-label{color:var(--good)}
+.pv-meh .pv-label{color:var(--warn)}
+.pv-bad .pv-label{color:var(--bad)}
+.verdict-sub{margin:0 0 10px;max-width:62ch;color:var(--ink-2)}
+.games,#checksOut{display:grid;gap:20px}
+.cblock h2,.ready h2,.about h2{font-family:var(--display);font-weight:600;font-size:1.15rem;margin:0 0 12px}
+.chk-search{position:relative;max-width:360px;margin-bottom:8px}
+.chk-search input{display:block;width:100%;font:inherit;border:var(--rule-bar) solid var(--ink);border-radius:0;background:var(--panel-2);color:var(--text);padding:9px 12px}
+.chk-search input:focus{border-color:var(--accent);outline:none}
+.chk-count{font-size:.82rem;color:var(--muted);margin:6px 0 0}
+.cblock select{display:block;width:100%;max-width:360px;font:inherit;font-weight:700;color:var(--text);background:var(--panel-2);border:var(--rule-bar) solid var(--ink);border-radius:0;padding:9px 12px}
+.gtable{border-collapse:collapse;margin-top:14px;width:100%}
+.gtable th,.gtable td{text-align:left;padding:11px 12px 11px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.gtable thead th{font-size:.82rem;color:var(--muted);font-weight:600}
+.gtable tbody th{font-weight:700;width:90px}
+.gtable td{color:var(--ink-2)}
+.fps{display:block;font-family:var(--display);font-weight:700;font-size:1.05rem;color:var(--text);font-variant-numeric:tabular-nums;margin-top:2px}
+.gnote{font-size:.82rem;color:var(--muted);margin:0}
+.ready ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.ready a{display:inline-block;text-decoration:none;font-weight:600;font-size:.9rem;background:var(--panel-2);border:var(--rule-bar) solid var(--ink);color:var(--text);padding:8px 13px;border-radius:0}
+.ready a:hover{border-color:var(--accent)}
+.ready-lab{margin:0 0 6px;color:var(--muted);font-size:.85rem;font-weight:600}
+.ready ul.ready-budgets{margin-bottom:14px}
+.ready-budgets a{padding:7px 12px}
+.about p{margin:0 0 8px;max-width:64ch;color:var(--muted)}
+.fine{max-width:920px;margin:24px auto 0;padding:0 20px;color:var(--muted);font-size:.82rem}
+.fine p{margin:0 0 6px;max-width:90ch}
+.fine a{color:var(--muted)}
+.fine .legal-links{margin-top:14px;font-size:.72rem}
+.fine .legal-links a{text-decoration-color:transparent;text-underline-offset:2px}
+.fine .legal-links a:hover,.fine .legal-links a:focus-visible{text-decoration-color:currentColor}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:5;transition:text-decoration-thickness .12s;display:flex;justify-content:center;align-items:center;gap:16px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:var(--paper);backdrop-filter:blur(8px)}
+.buybar::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--rgb);background-size:200% 100%;animation:flow 8s linear infinite}
+.bl-short{display:none}
+.buybar.away{transform:translateY(110%)}
+.quiz-nav{display:none}
+.answers{background:var(--panel);border:var(--rule-bar) solid var(--ink);border-radius:0;padding:14px 18px;display:grid;gap:10px}
+.ans-top{display:flex;justify-content:space-between;align-items:center;gap:10px 16px;flex-wrap:wrap}
+.ans-text{margin:0;font-weight:600;color:var(--text)}
+.ans-text span{color:var(--muted);font-weight:400}
+.ans-budget{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center}
+.ans-budget label{font-size:.86rem;color:var(--muted);font-weight:600}
+.ans-budget input{margin:0}
+.ans-budget output{font-family:var(--display);font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums;min-width:5.5ch;text-align:right}
+.restart{justify-self:start;font:inherit;font-size:.85rem;font-weight:700;color:var(--accent-2);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+body.quiz .result,body.quiz .games,body.quiz .ready,body.quiz .faq,body.quiz .about,body.quiz .buybar{display:none!important}
+body.quiz{padding-bottom:40px}
+body.quiz .sheet{grid-template-columns:minmax(0,640px);justify-content:center}
+body.quiz .form{padding:26px}
+body.quiz .form .q:not(.step-on),body.quiz .more-btn{display:none!important}
+body.quiz .form .q.step-on{display:grid!important}
+body.quiz .qlab{font-size:1.35rem}
+body.quiz .opt{padding:12px 16px;font-size:1rem}
+body.quiz #uses .opt,body.quiz #extras .opt,body.quiz #plat .opt{border-radius:0}
+body.quiz #uses .opt small{display:block;font-weight:400;font-size:.8rem;color:var(--muted);margin-left:6px}
+body.quiz .quiz-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:6px;border-top:1px solid var(--line)}
+.quiz-count{font-size:.85rem;color:var(--muted)}
+.quiz-next{border:0;cursor:pointer;font:inherit;font-weight:700}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+body.revealed .result{animation:rise .5s ease-out both}
+body.revealed .specbar>div{animation:rise .45s ease-out both}
+body.revealed .specbar>div:nth-child(2){animation-delay:.08s}
+body.revealed .specbar>div:nth-child(3){animation-delay:.16s}
+body.revealed .specbar>div:nth-child(4){animation-delay:.24s}
+.more-btn{display:none;font:inherit;font-weight:600;font-size:.88rem;color:var(--accent-2);background:none;border:1px dashed var(--line);border-radius:0;padding:9px 12px;text-align:left;cursor:pointer}
+.bar-jump{display:none;font-weight:700;font-size:.9rem;color:var(--text)}
+.pcs{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:12px}
+.pc{background:var(--panel-2);border:var(--rule-bar) solid var(--ink);border-radius:0;padding:16px;display:grid;gap:8px}
+.pc.key{border:1px solid transparent;background:linear-gradient(var(--paper-3),var(--paper-3)) padding-box,var(--rgb) border-box}
+.pc-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.pc-rank{font-size:.8rem;font-weight:700;color:var(--ink)}
+.pc-price{font-family:var(--display);font-weight:700;font-size:1.3rem;font-variant-numeric:tabular-nums}
+.pc-name{margin:0;font-weight:700;font-size:1.02rem}
+.pc-title{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.pc-score{flex:none;font-family:var(--display);font-weight:700;font-size:1.05rem;line-height:1;padding:6px 9px;border-radius:0;background:var(--rule);color:var(--text);border:var(--rule-bar) solid var(--ink)}
+.pc-score small{font-size:.7rem;color:var(--muted);font-weight:600;margin-left:1px}
+.pc-score.hi{background:var(--paper-3);border-color:var(--ink);color:var(--ink)}
+.pc-score.lo{background:var(--paper-3);border-color:var(--accent-2-deep);color:var(--accent-2-deep)}
+button.btn-buy{border:0;cursor:pointer;font-family:inherit}
+.nc-btn{background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-family:inherit}
+.nc{margin-top:14px;padding:16px;border-radius:0;background:var(--panel-2);border:1px solid var(--accent);display:grid;gap:12px;scroll-margin-top:12px}
+.nc[hidden]{display:none}
+.nc h3{margin:0;font-size:1.05rem}
+.nc-sub{margin:-4px 0 0;color:var(--muted);font-size:.92rem}
+.nc-text{display:grid;gap:6px;font-size:.9rem;font-weight:600}
+.nc-text[hidden]{display:none}
+.nc-text input{font:inherit;font-weight:400;padding:10px 12px;border-radius:0;border:var(--rule-bar) solid var(--ink);background:var(--bg);color:var(--text)}
+.nc-go{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.nc .pcs{margin-top:0}
+.nc .pc{background:var(--panel,var(--paper))}
+.nc-up{color:var(--ink)!important}.nc-down{color:var(--accent-2-deep)!important}
+.cmp-sides{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+@media (max-width:640px){.cmp-sides{grid-template-columns:1fr}}
+.cmp-side{display:grid;gap:10px;align-content:start;padding:14px;border-radius:0;border:var(--rule-bar) solid var(--ink);background:var(--panel-2)}
+.cmp-side h3{margin:0;font-size:1rem}
+.cmp-side [hidden]{display:none!important}
+.cmp-side label{font-size:.85rem;color:var(--muted);font-weight:600}
+.cmp-side select,.cmp-side input[type=text]{display:block;width:100%;font:inherit;border:var(--rule-bar) solid var(--ink);border-radius:0;background:var(--panel);color:var(--text);padding:9px 12px;margin-top:5px;box-sizing:border-box}
+.cmp-read{display:grid;gap:8px}
+.cmp-photo{display:inline-flex;align-items:center;justify-content:center;gap:6px;color:var(--text)!important;font-size:.88rem!important}
+.cmp-photo input{position:absolute;width:1px;height:1px;opacity:0}
+.cmp-photo:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+.cmp-status:empty{display:none}
+.cmp-pr .priceinp input{font-size:1.1rem!important;padding:8px 10px!important}
+.cmp-ram{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cmp-win{margin:14px 0;padding:16px 18px;border-radius:0;background:var(--paper-3);border:1px solid var(--rule)}
+.cmp-win span{display:block;color:var(--ink);font-size:.88rem;font-weight:600}
+.cmp-win b{display:block;font-family:var(--display);font-size:1.4rem;margin:2px 0 6px}
+.cmp-win p{margin:0;color:var(--ink);font-size:.95rem}
+.cmp-table{display:grid;gap:0;border:var(--rule-bar) solid var(--ink);border-radius:0;overflow:hidden}
+.cmp-row{display:grid;grid-template-columns:minmax(120px,1fr) 1.4fr 1.4fr;gap:10px;align-items:center;padding:10px 14px;border-top:1px solid var(--line)}
+.cmp-row:first-child{border-top:0}
+.cmp-head{background:var(--panel-2)}
+.cmp-head .cmp-v b{font-family:var(--display);font-size:.95rem}
+.cmp-lab{color:var(--muted);font-size:.86rem;font-weight:600}
+.cmp-v{display:grid;gap:5px;font-size:.92rem}
+.cmp-v.win b{color:var(--ink)}
+.cmp-bar{display:block;height:6px;border-radius:0;background:var(--rule);overflow:hidden}
+.cmp-bar i{display:block;height:100%;background:var(--rule);border-radius:0}
+.cmp-bar.win i{background:var(--accent)}
+@media (max-width:640px){.cmp-row{grid-template-columns:1fr 1fr}.cmp-lab{grid-column:1 / -1}.cmp-head .cmp-lab{display:none}}
+.cmp-links{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+@media (max-width:640px){.cmp-links{grid-template-columns:1fr}}
+.cmp-links>div{padding:12px 14px;border-radius:0;background:var(--panel-2);border:var(--rule-bar) solid var(--ink)}
+.cmp-ln{margin:0 0 4px;font-weight:700}
+.cmp-links .buy{margin-top:4px}
+.pc-note{margin:8px 0 0;color:var(--muted);font-size:.85rem}
+.nc-over{margin:0;color:var(--accent-2-deep);font-size:.92rem}
+.pc .specs,.pc .why,.pc .buy{grid-column:auto}
+.pc .why{margin:0;color:var(--muted);font-size:.92rem}
+.pc-more{margin-top:12px}
+.upsell{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 16px;margin:12px 0 4px;padding:12px 14px;border-radius:0;background:var(--paper-3);border:1px solid var(--rule)}
+.upsell p{margin:0;color:var(--ink);font-size:.93rem}
+.faq{grid-area:faq;background:var(--panel);border:var(--rule-bar) solid var(--ink);border-radius:0;padding:22px}
+.faq h2{font-family:var(--display);font-weight:600;font-size:1.15rem;margin:0 0 8px}
+.faq details{border-top:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--muted);font-weight:400;font-size:1.2rem;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:8px 0 0;color:var(--ink-2);max-width:68ch}
+.bar-total{font-family:var(--display);font-weight:700;font-size:1.25rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+body.has-bar{padding-bottom:96px}
+@media (max-width:560px){
+.more-btn{display:block}
+.form:not(.more-open) .q-new{display:none}
+.form.pf-mode .more-btn,.form.up-mode .more-btn,.form.cmp-mode .more-btn{display:none}
+.bar-jump{display:inline}
+.bl-long{display:none}
+.bl-short{display:inline}
+.buybar{gap:12px}
+.top{padding:14px 12px}
+.sheet,.fine{padding-left:12px;padding-right:12px}
+h1{margin-top:22px}
+.form,.result,.cblock,.ready,.about{padding:16px 14px;border-radius:0}
+.specbar{grid-template-columns:1fr 1fr}
+.row{grid-template-columns:1fr auto}
+.row .kind{grid-column:1;grid-row:1}
+.row .price{grid-column:2;grid-row:1}
+.row .name-wrap,.row .name{grid-column:1 / 3}
+.buybar{gap:10px;padding-left:12px;padding-right:12px}
+.bar-total{font-size:1rem}
+.buybar .btn-buy{font-size:.84rem;padding:9px 11px}
+.bar-jump{font-size:.84rem}
+.specs,.row .why,.buy,.key-note{grid-column:1 / 3}
+.total,.total-sub{text-align:left}
+.details{grid-template-columns:1fr}
+.budget{font-size:2.2rem}
+}
+@media (prefers-reduced-motion:reduce){*,.buybar{transition:none!important;animation:none!important}}
+html,body{overflow-x:clip}
+::selection{background:var(--accent-3);color:var(--ink)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;transition:none}
+a{color:var(--ink);text-decoration-thickness:2px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:3px}
+h1,h2,h3,.qlab,.logo,.result-head h2,.total,.budget,.pc-price,.rk-n,.fps,.bar-total{font-family:var(--display);font-weight:700;letter-spacing:.005em}
+h1,h2,h3,.qlab,.logo{text-transform:uppercase;line-height:1.02}
+.top{border-bottom:var(--rule-bar) solid var(--ink)}
+.top::after,.buybar::before{display:none}
+.logo{font-size:1.5rem;color:var(--ink)}
+.top .date{color:var(--muted);font-weight:600}
+h1{font-size:clamp(2.8rem,7vw,5.6rem);max-width:11ch;letter-spacing:.01em;line-height:1.08;margin-top:40px}
+.intro{color:var(--ink-2);font-size:1.15rem;max-width:42ch;margin:0}
+.form,.result,.cblock,.ready,.about,.faq,.answers,.vs-links{background:transparent;border:var(--rule-box) solid var(--ink)}
+.form{gap:24px}
+.opt{border:var(--rule-bar) solid var(--ink);background:transparent;color:var(--ink);font-family:var(--body);font-weight:600;min-height:44px}
+.opt:hover{background:var(--paper-3);border-color:var(--ink)}
+.opt:active{background:var(--paper-2)}
+.opt[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink);box-shadow:none}
+.opt[aria-pressed="true"] small{color:var(--paper-3)!important}
+button:disabled,.opt:disabled{opacity:.45;cursor:not-allowed}
+#modes{gap:0;border:var(--rule-box) solid var(--ink)}
+#modes .opt{border:0;border-right:var(--rule-bar) solid var(--ink);border-bottom:var(--rule-bar) solid var(--ink);padding:16px;min-height:88px;display:grid;grid-template-columns:18px minmax(0,1fr);gap:12px;align-items:start}
+#modes .opt .box{display:block;width:18px;height:18px;margin-top:3px;background:var(--c,var(--accent))!important;border:var(--rule-hair) solid var(--ink)}
+#modes .opt:nth-child(2n){border-right:0}
+#modes .opt:nth-last-child(-n+2){border-bottom:0}
+#modes .opt{--c:var(--accent)}
+#modes .opt[aria-pressed="true"] .box{border-color:var(--paper);background:var(--c,var(--accent))!important}
+#modes .opt[data-mode="segunda"],#modes .opt[data-mode="precio"]{--c:var(--accent-2-deep)}
+#modes .opt[data-mode="mejorar"],#modes .opt[data-mode="comparar"]{--c:var(--accent-3)}
+#modes .opt span{font-size:1.05rem}
+#modes .opt small{color:var(--muted);font-size:.86rem;margin-top:4px}
+.qlab{font-size:1.25rem}
+body.quiz .qlab{font-size:1.6rem}
+.qhint{text-transform:none;font-family:var(--body)}
+.budget{font-size:3.4rem;letter-spacing:-.01em}
+input[type=range]{accent-color:var(--ink)}
+.quiz-next,.btn-buy,button.btn-buy{background:var(--ink);color:var(--paper)!important;border:var(--rule-bar) solid var(--ink);font-family:var(--body);font-weight:600;text-transform:uppercase;padding:12px 18px;min-height:44px;letter-spacing:0}
+.quiz-next:hover,.btn-buy:hover{background:var(--ink-2)}
+.quiz-next:active,.btn-buy:active{background:var(--accent);border-color:var(--accent)}
+.share-btn{border:var(--rule-bar) solid var(--ink);color:var(--ink);text-transform:uppercase;font-weight:600;min-height:44px}
+.share-btn:hover{background:var(--paper-3)}
+.share-btn:active{background:var(--paper-2)}
+body.quiz .quiz-nav{border-top:var(--rule-bar) solid var(--ink);padding-top:14px}
+.quiz-count{font-weight:600;font-variant-numeric:tabular-nums}
+.total{font-size:3.4rem}
+.specbar{gap:0;border:var(--rule-box) solid var(--ink)}
+.specbar div{border:0;border-right:var(--rule-bar) solid var(--ink);background:transparent;padding:14px}
+.specbar div:last-child{border-right:0}
+.specbar .hot{background:var(--accent-3);border:0;border-right:var(--rule-bar) solid var(--ink)}
+.specbar span{color:var(--ink-2);font-weight:600}
+.row{border-top:var(--rule-hair) solid var(--rule)}
+.row.key{background:var(--paper-3);border:var(--rule-box) solid var(--ink)}
+.row .price,.pc-price,.rk-price,.cmp-v b,.ans-budget output,.priceinp input,.pricelab{font-variant-numeric:tabular-nums}
+.specs span{background:transparent;border:var(--rule-hair) solid var(--ink);color:var(--ink)}
+.pc,.cmp-side,.cmp-links>div,.rk-row,.sticky{background:transparent;border:var(--rule-bar) solid var(--ink)}
+.pc.key,.rk-row.first{background:var(--paper-3);border:var(--rule-box) solid var(--ink)}
+.pc-score{color:var(--ink);background:transparent;border:var(--rule-bar) solid var(--ink)}
+.pc-score.hi{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.pc-score.lo{background:var(--accent-2-deep);color:var(--accent-ink);border-color:var(--accent-2-deep)}
+.rk-badge{background:var(--paper-3);border:var(--rule-hair) solid var(--ink);color:var(--ink)}
+.rk-badge.top{background:var(--accent-3);border-color:var(--ink)}
+.cmp-win,.upsell,.nc{background:var(--paper-3);border:var(--rule-box) solid var(--ink)}
+.cmp-bar{background:var(--paper-2)}.cmp-bar i{background:var(--ink-2)}.cmp-bar.win i{background:var(--accent)}
+.gtable thead th{border-bottom:var(--rule-bar) solid var(--ink);color:var(--muted)}
+.ready a{background:transparent;border:var(--rule-bar) solid var(--ink)}
+.ready a:hover{background:var(--paper-3)}
+.faq details{border-top:var(--rule-hair) solid var(--rule)}
+.buybar{background:var(--paper);border-top:var(--rule-box) solid var(--ink);backdrop-filter:none}
+.fine{border-top:var(--rule-bar) solid var(--ink);padding-top:18px;max-width:1180px;color:var(--ink-2);font-size:.9rem}
+.fine p{max-width:70ch}
+.fine a{color:var(--ink)}
+.fine .legal-links{display:flex;gap:20px;font-size:.84rem}
+.fine .legal-links a{text-decoration-color:currentColor}
+input,select{border-radius:0}
+@media (max-width:560px){
+#modes .opt{grid-template-columns:minmax(0,1fr);gap:8px;padding:12px;min-height:0}
+#modes .opt .box{width:14px;height:14px;margin:0}
+}
+.pick-hint{display:none;margin:-4px 0 0;font-weight:600;color:var(--ink-2)}
+body.fresh .pick-hint{display:block}
+.fps-up{display:block;font-family:var(--body);font-weight:600;font-size:.86rem;color:var(--ink-2);margin-top:2px}
+.pc-miss{margin:0;font-size:.92rem;color:var(--ink-2)}
+.pc-miss b{color:var(--ink)}
+body.quiz .sheet{min-height:calc(100svh - 64px);align-content:center}
+@media (max-width:560px){
+.top{flex-wrap:nowrap;padding:12px}
+.logo{font-size:1.2rem}
+.top .date{font-size:.72rem;text-align:right}
+body.quiz .sheet{min-height:calc(100svh - 52px);align-content:start;gap:12px}
+body.quiz h1{font-size:2.35rem;margin-top:14px}
+body.quiz .intro{font-size:.98rem;line-height:1.4}
+body.quiz .form{padding:14px;gap:14px}
+body.quiz .qlab{font-size:1.25rem}
+body.quiz #modes .opt{padding:10px;gap:6px}
+body.quiz #modes .opt span{font-size:.98rem;line-height:1.2}
+body.quiz #modes .opt small{font-size:.78rem;line-height:1.3;margin-top:2px}
+.pick-hint{font-size:.9rem}
+}
+.pc-score small{color:inherit;opacity:.8}
+.buybar{transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s ease!important}
+.buybar.away{opacity:0}
+.upsell.parts{background:var(--accent-3)}
+.season{margin:0;padding:10px max(20px,calc((100% - 1180px)/2 + 20px));background:var(--ink);color:var(--paper);font-weight:600;font-size:.92rem;text-align:center}
+.cartbox{margin:16px 0 0;padding:16px;border:var(--rule-box) solid var(--ink);background:var(--paper-3);display:grid;gap:12px;justify-items:start}
+.cartbox p{margin:0}
+.total{overflow-wrap:normal;white-space:nowrap}
+@media (max-width:560px){
+.total{font-size:2.3rem}
+.specbar div{border-right:0;border-bottom:var(--rule-bar) solid var(--ink)}
+.specbar div:nth-child(odd){border-right:var(--rule-bar) solid var(--ink)}
+.specbar div:nth-last-child(-n+2){border-bottom:0}
+.season{font-size:.8rem;padding:8px 12px}
+}
+.form .opts:is(#uses,#plat,#extras,#pfKind,#pfCond,#cmpKind){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--rule-bar);background:var(--ink);border:var(--rule-box) solid var(--ink)}
+.form .opts:is(#uses,#plat,#extras,#pfKind,#pfCond,#cmpKind) .opt{border:0;background:var(--paper);min-height:76px;padding:14px 16px;text-align:left;width:auto;display:block}
+.form .opts:is(#uses,#plat,#extras,#pfKind,#pfCond,#cmpKind) .opt:hover{background:var(--paper-3)}
+.form .opts:is(#uses,#plat,#extras,#pfKind,#pfCond,#cmpKind) .opt:active{background:var(--paper-2)}
+.form .opts:is(#uses,#plat,#extras,#pfKind,#pfCond,#cmpKind) .opt[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.form .opts:is(#uses,#plat,#extras,#pfKind,#pfCond,#cmpKind) .opt:last-of-type:nth-of-type(odd){grid-column:1/-1}
+.form .opts:is(#uses,#plat,#extras,#pfKind,#pfCond,#cmpKind) .opt small{display:block;margin:4px 0 0;font-size:.84rem;line-height:1.3}
+body.quiz .quiz-next{white-space:nowrap;min-width:0}
+@media (max-width:420px){body.quiz .quiz-next{white-space:normal;text-align:center;line-height:1.2;flex:1 1 auto}}
+#waLink{display:inline-flex;align-items:center;text-decoration:none}
+@media (max-width:560px){
+.form .opts:is(#uses,#plat,#extras,#pfKind,#pfCond,#cmpKind) .opt{min-height:0;padding:12px}
+.form .opts:is(#uses,#plat,#extras,#pfKind,#pfCond,#cmpKind) .opt small{font-size:.78rem}
+}
+.form .opts:is(#plat,#extras){grid-template-columns:repeat(3,minmax(0,1fr))}
+.form .opts:is(#plat,#extras) .opt{min-height:64px;display:flex;align-items:center}
+.form .opts:is(#plat,#extras) .opt:last-of-type:nth-of-type(odd){grid-column:auto}
+.qlab .qhint{display:block}
+.use-hint{margin:0;font-weight:700;color:var(--accent-2-deep)}
+#ncPanel.nc{background:var(--accent-3);border:var(--rule-box) solid var(--ink);padding:24px;gap:16px;scroll-margin:80px 0}
+#ncPanel h3{font-size:1.5rem;line-height:1.1}
+#ncPanel .nc-sub{color:var(--ink);font-size:1rem}
+#ncOpts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--rule-bar);background:var(--ink);border:var(--rule-box) solid var(--ink)}
+#ncOpts .opt{border:0;background:var(--paper);min-height:56px;justify-content:center;text-align:center}
+#ncOpts .opt:hover{background:var(--paper-3)}
+#ncOpts .opt[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+#ncOpts .opt:last-of-type{grid-column:span 2}
+#ncPanel .btn-buy{font-size:1rem;padding:14px 22px}
+#ncPanel .share-btn{background:var(--paper)}
+.nc-pop{animation:ncpop .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes ncpop{from{transform:scale(.97);opacity:.4}to{transform:none;opacity:1}}
+@media (max-width:560px){
+#ncOpts{grid-template-columns:repeat(2,minmax(0,1fr))}
+#ncOpts .opt:last-of-type:nth-of-type(odd){grid-column:1/-1}
+#ncPanel.nc{padding:16px}
+#ncPanel h3{font-size:1.2rem}
+}
+.swap{margin-top:10px}
+.swap-btn{background:none;border:0;padding:6px 0;font:inherit;font-weight:700;color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;cursor:pointer;min-height:44px}
+.swap-btn:hover{text-decoration-thickness:3px}
+.swap-opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--rule-bar);background:var(--ink);border:var(--rule-box) solid var(--ink);margin-top:6px}
+.swap-opts[hidden]{display:none}
+.swap-opt{background:var(--paper-3);border:0;padding:12px 14px;text-align:left;font:inherit;color:var(--ink);cursor:pointer;display:grid;gap:2px;min-height:64px}
+.swap-opt:hover{background:var(--accent-3)}
+.swap-opt:active{background:var(--paper-2)}
+.swap-opt span{font-size:.88rem;color:var(--ink-2)}
+.swap-opt:only-child{grid-column:1/-1}
+@media (max-width:560px){.swap-opts{grid-template-columns:minmax(0,1fr)}}
+.newbox{margin:18px 0 6px;padding:14px 16px;background:var(--paper-3);border:var(--rule-bar) solid var(--ink)}.newbox h3{margin:0 0 6px}.newbox p{margin:0 0 8px}.newbox-btn{font:inherit;font-weight:700;cursor:pointer;background:var(--ink);color:var(--paper);border:0;padding:10px 14px;margin-top:4px}.newbox-btn:hover{background:var(--accent)}
+.study-list{list-style:none;padding:0!important;margin-left:0!important;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.study-pc{border:var(--rule-bar) solid var(--ink);background:var(--paper-3);padding:16px;display:flex;flex-direction:column;gap:8px}.study-pc h3{margin:0}.study-pc p{margin:0}.study-spec{font-size:.92rem;color:var(--ink-2)}.study-price{font-weight:700;font-size:1.25rem}.study-pc .btn-buy{margin-top:auto;align-self:flex-start;text-decoration:none}.study-note{font-size:.88rem;color:var(--ink-2)}
+@media (min-width:1000px){
+.top{padding:18px max(28px,calc((100% - 1180px)/2 + 20px))}
+body.quiz .sheet{max-width:1180px;padding-bottom:24px;grid-template-columns:minmax(0,1fr) minmax(0,560px);column-gap:72px;row-gap:0;
+grid-template-areas:"head form" "intro form" "answers answers" "result result" "games games" "ready ready" "vs vs" "faq faq" "about about";align-content:center}
+body.quiz .sheet>h1{align-self:end;margin:0 0 24px}
+body.quiz .sheet>.intro{align-self:start}
+body.quiz .form{margin-top:0}
+}
+.doc{max-width:820px;margin:0 auto;padding:0 20px}
+.doc h1{margin:34px 0 10px;max-width:22ch}
+.doc .lead{color:var(--muted);font-size:1.08rem;max-width:62ch;margin:0 0 22px}
+.doc article{background:var(--panel);border:var(--rule-bar) solid var(--ink);border-radius:0;padding:26px}
+.doc h2{font-family:var(--display);font-weight:600;font-size:1.2rem;margin:28px 0 8px}
+.doc h2:first-child{margin-top:0}
+.doc p,.doc li{color:var(--ink-2);max-width:68ch}
+.doc ol.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:14px}
+.doc ol.steps>li{counter-increment:s;position:relative;padding:16px 16px 16px 62px;background:var(--panel-2);border:var(--rule-bar) solid var(--ink);border-radius:0;max-width:none}
+.doc ol.steps>li::before{content:counter(s);position:absolute;left:16px;top:14px;width:32px;height:32px;border-radius:0;display:grid;place-items:center;font-family:var(--display);font-weight:700;color:var(--paper);background:var(--accent)}
+.doc ol.steps h3{font-family:var(--display);font-weight:600;font-size:1.02rem;margin:4px 0 6px;color:var(--text)}
+.doc ol.steps p{margin:0}
+.doc .tip{margin:10px 0 0;padding:10px 12px;border-radius:0;background:var(--paper-3);border:1px solid var(--rule);color:var(--ink);font-size:.93rem}
+.doc .fill{background:var(--accent-3);color:var(--ink);padding:0 4px;border-radius:0}
+.doc .titular-h{font-size:.95rem;margin-top:28px}
+.doc .titular{font-size:.82rem;color:var(--muted)}
+.doc .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:26px}
+.doc ul{padding-left:20px}
+.ready a[aria-current="page"]{border-color:var(--accent);background:var(--paper-3)}
+@media (max-width:560px){
+.doc{padding:0 12px}
+.doc article{padding:18px 14px}
+.doc ol.steps>li{padding:14px 12px 14px 50px}
+.doc ol.steps>li::before{left:10px;top:12px;width:28px;height:28px;border-radius:0}
+.doc .tip{margin-left:-38px}
+}</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "MontaTuPC", "url": "https://montatupc.github.io/", "applicationCategory": "UtilitiesApplication", "inLanguage": "es", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Sale más barato montarlo yo o comprarlo montado?", "acceptedAnswer": {"@type": "Answer", "text": "En los PCs baratos, a veces un PC montado cuesta casi lo mismo que sus piezas, porque las marcas compran al por mayor. El truco es que suelen ahorrar en la fuente, la placa o la RAM. A partir de unos 1000 €, montarlo tú suele salir mejor y eliges cada pieza."}}, {"@type": "Question", "name": "¿Por qué la RAM y las gráficas están tan caras?", "acceptedAnswer": {"@type": "Answer", "text": "Los centros de datos de inteligencia artificial se están quedando gran parte de la memoria que se fabrica. Desde finales de 2025, la DDR5 ha llegado a costar varias veces más que antes, y eso arrastra a las gráficas. Por eso aquí 16 GB suelen bastar para jugar y el dinero va a la gráfica."}}, {"@type": "Question", "name": "¿AMD o Intel?", "acceptedAnswer": {"@type": "Answer", "text": "Para jugar, los AMD con \"X3D\" son ahora mismo los más rápidos, y su plataforma AM5 seguirá recibiendo procesadores nuevos. Intel va muy bien en calidad-precio con el i5-14400F. Si te da igual, deja \"Me da igual\" y la web elige el que más rinde por tu dinero."}}, {"@type": "Question", "name": "¿Es difícil montar un PC?", "acceptedAnswer": {"@type": "Answer", "text": "No. Con un destornillador y paciencia se monta en unas 2 o 3 horas. Tienes la guía paso a paso con los fallos típicos que conviene evitar."}}, {"@type": "Question", "name": "¿Seguro que la gráfica cabe en la caja?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Para cada gráfica tomo el largo de sus modelos más largos, no el de la versión más corta, y solo recomiendo cajas cuyo fabricante admite al menos 15 mm más. También compruebo que el disipador y el radiador entran. Si cambias tu PC por piezas, en \"Mejorar el mío\" puedes decirme cuánto admite tu caja y solo te enseño gráficas que quepan."}}, {"@type": "Question", "name": "¿Qué fuente de alimentación necesito?", "acceptedAnswer": {"@type": "Answer", "text": "La web la calcula sola según lo que gastan el procesador y la gráfica, con margen. Lo importante es que sea de una marca conocida y con certificado 80 Plus. Una fuente mala es lo único que puede estropear todo lo demás."}}, {"@type": "Question", "name": "¿Los precios son exactos?", "acceptedAnswer": {"@type": "Answer", "text": "Son estimaciones que reviso a menudo, por eso salen en rango. El precio que vale es el de la tienda el día que compras: pulsa el botón de cada pieza para verlo."}}]}</script>
+</head>
+<body><script>if(!location.hash)document.body.classList.add("quiz","fresh")</script>
+<div class="top">
+  <a class="logo" href="index.html">MontaTuPC</a>
+  <span class="date">precios revisados en noviembre de 2026</span>
+</div>
+
+<p class="season" id="season" hidden></p>
+
+<div class="sheet">
+  <h1 class="rough" data-rough="underline" id="h1">¿Qué PC me compro?</h1>
+  <p class="intro" id="intro">Contesta unas preguntas rápidas y te enseño los mejores PCs para tu presupuesto, con enlaces directos a Amazon y cómo te irá en lo que vayas a hacer con él.</p>
+
+  <div class="answers" id="answers">
+    <div class="ans-top"><p class="ans-text" id="ansText"></p><button type="button" class="share-btn" id="ansEdit">Cambiar respuestas</button></div>
+    <div class="ans-budget" id="ansBudget"><label for="budget2">Presupuesto</label><input type="range" id="budget2" min="600" max="3500" step="50" value="1500"><output id="budget2Out" for="budget2">1500 €</output></div>
+  </div>
+  <div class="form">
+    <button type="button" class="restart" id="restartBtn" hidden>Repetir el test</button>
+    <div class="q step-on">
+      <span class="qlab" id="lab-mode">Quiero comprarlo</span>
+      <p class="pick-hint" id="pickHint">Toca la opción que va contigo para empezar</p>
+      <div class="opts" role="group" aria-labelledby="lab-mode" id="modes">
+        <button class="opt" data-mode="montado" aria-pressed="true"><span class="box"></span><span>Ya montado<small>Que llegue listo para enchufar</small></span></button>
+        <button class="opt" data-mode="piezas" aria-pressed="false"><span class="box"></span><span>A piezas<small>Lo monto yo y ahorro</small></span></button>
+        <button class="opt" data-mode="segunda" aria-pressed="false"><span class="box"></span><span>De segunda mano<small>Gasto menos y busco piezas usadas</small></span></button>
+        <button class="opt" data-mode="precio" aria-pressed="false"><span class="box"></span><span>¿Es buen precio?<small>Miro un anuncio y te digo si merece la pena</small></span></button>
+        <button class="opt" data-mode="mejorar" aria-pressed="false"><span class="box"></span><span>Mejorar el mío<small>Ya tengo PC y quiero cambiar piezas</small></span></button>
+        <button class="opt" data-mode="comparar" aria-pressed="false"><span class="box"></span><span>Comparar<small>Dudo entre dos y quiero saber cuál coger</small></span></button>
+      </div>
+    </div>
+    <div class="q q-buy">
+      <label class="qlab" for="budget" id="budgetLab">Me puedo gastar</label>
+      <div class="budget-wrap">
+        <output class="budget" id="budgetOut" for="budget">1500 €</output>
+        <input type="range" id="budget" min="600" max="3500" step="50" value="1500">
+        <div class="scale"><span id="minLab">600 €</span><span id="maxLab">3500 €</span></div>
+      </div>
+    </div>
+    <div class="q q-buy">
+      <span class="qlab" id="lab-use">Lo quiero para<small class="qhint">marca todo lo que vayas a hacer</small></span>
+      <p class="use-hint" id="useHint" hidden>Marca al menos una para seguir</p>
+      <div class="opts" role="group" aria-labelledby="lab-use" id="uses">
+        <button class="opt" data-use="g1080" aria-pressed="true"><span class="box"></span><span>Jugar en 1080p<small>Fortnite, Valorant, CS2</small></span></button>
+        <button class="opt" data-use="g1440" aria-pressed="false"><span class="box"></span><span>Jugar en 1440p o 4K<small>Juegos exigentes con más detalle</small></span></button>
+        <button class="opt" data-use="edit" aria-pressed="false"><span class="box"></span><span>Editar y hacer directos<small>Premiere, DaVinci, OBS</small></span></button>
+        <button class="opt" data-use="ia" aria-pressed="false"><span class="box"></span><span>Usar IA en casa<small>Stable Diffusion, modelos de texto</small></span></button>
+        <button class="opt" id="otherBtn" aria-pressed="false" aria-controls="otherBox"><span class="box"></span><span>Otra cosa<small>Escríbelo y lo tengo en cuenta</small></span></button>
+        <div class="other" id="otherBox" hidden>
+          <label for="otherIn" class="sr">¿Para qué más lo quieres?</label>
+          <input id="otherIn" type="text" placeholder="Por ejemplo: Minecraft con mods y programar" autocomplete="off">
+          <p class="hand" id="otherNote" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="more-btn" id="moreBtn" aria-expanded="false">Más opciones: marca del procesador, monitor y periféricos</button>
+    <div class="q q-new">
+      <span class="qlab" id="lab-plat">Procesador<small class="qhint">si no marcas ninguno, me vale cualquiera</small></span>
+      <div class="opts" role="group" aria-labelledby="lab-plat" id="plat">
+        <button class="opt" data-plat="any" aria-pressed="true"><span class="box"></span><span>Me da igual</span></button>
+        <button class="opt" data-plat="AMD" aria-pressed="false"><span class="box"></span><span>AMD</span></button>
+        <button class="opt" data-plat="Intel" aria-pressed="false"><span class="box"></span><span>Intel</span></button>
+      </div>
+    </div>
+    <div class="q q-new">
+      <span class="qlab" id="lab-extra">También me falta</span>
+      <div class="opts" role="group" aria-labelledby="lab-extra" id="extras">
+        <button class="opt" data-extra="monitor" aria-pressed="false"><span class="box"></span><span>Monitor</span></button>
+        <button class="opt" data-extra="kbm" aria-pressed="false"><span class="box"></span><span>Teclado y ratón</span></button>
+        <button class="opt" data-extra="audio" aria-pressed="false"><span class="box"></span><span>Auriculares</span></button>
+      </div>
+    </div>
+    <div class="q" id="pfForm" hidden>
+      <span class="qlab" id="lab-pf">¿Qué quieres mirar?</span>
+      <div class="opts" role="group" aria-labelledby="lab-pf" id="pfKind">
+        <button class="opt" data-kind="gpu" aria-pressed="true"><span class="box"></span><span>Una gráfica</span></button>
+        <button class="opt" data-kind="cpu" aria-pressed="false"><span class="box"></span><span>Un procesador</span></button>
+        <button class="opt" data-kind="pc" aria-pressed="false"><span class="box"></span><span>Un PC entero</span></button>
+      </div>
+      <div class="upgrid">
+        <div class="pick" id="pf-cpu-wrap"><label for="pf-cpu-q">Procesador</label><input type="search" id="pf-cpu-q" data-for="pf-cpu" placeholder="Escribe el modelo, por ejemplo 5600" autocomplete="off"><select id="pf-cpu" aria-label="Procesador"></select><p class="pick-note" id="pf-cpu-n"></p></div>
+        <div class="pick" id="pf-gpu-wrap"><label for="pf-gpu-q">Gráfica</label><input type="search" id="pf-gpu-q" data-for="pf-gpu" placeholder="Escribe el modelo, por ejemplo 3060" autocomplete="off"><select id="pf-gpu" aria-label="Gráfica"></select><p class="pick-note" id="pf-gpu-n"></p></div>
+        <label for="pf-ram" class="pf-pc">RAM<select id="pf-ram"><option value="8">8 GB</option><option value="16" selected>16 GB</option><option value="32">32 GB</option><option value="64">64 GB</option></select></label>
+        <label for="pf-disk" class="pf-pc">Disco<select id="pf-disk"><option value="0.5">500 GB</option><option value="1" selected>1 TB</option><option value="2">2 TB o más</option></select></label>
+      </div>
+      <div class="opts" role="group" aria-label="Estado" id="pfCond">
+        <button class="opt" data-cond="usado" aria-pressed="true"><span class="box"></span><span>De segunda mano</span></button>
+        <button class="opt" data-cond="nuevo" aria-pressed="false"><span class="box"></span><span>Nuevo</span></button>
+      </div>
+      <label for="pf-price" class="pricelab">Precio del anuncio<span class="priceinp"><input id="pf-price" type="number" inputmode="numeric" min="0" step="1" placeholder="150"><span>€</span></span></label>
+    </div>
+    <div class="q" id="upForm" hidden>
+      <span class="qlab">Lo que tengo ahora</span>
+      <div class="upgrid">
+        <div class="pick"><label for="up-cpu-q">Procesador</label><input type="search" id="up-cpu-q" data-for="up-cpu" placeholder="Escribe el modelo, por ejemplo 3600" autocomplete="off"><select id="up-cpu" aria-label="Procesador"></select><p class="hand pick-note" id="up-cpu-n"></p></div>
+        <div class="pick"><label for="up-gpu-q">Gráfica</label><input type="search" id="up-gpu-q" data-for="up-gpu" placeholder="Escribe el modelo, por ejemplo 1660" autocomplete="off"><select id="up-gpu" aria-label="Gráfica"></select><p class="hand pick-note" id="up-gpu-n"></p></div>
+        <label for="up-ram">RAM<select id="up-ram"><option value="4">4 GB</option><option value="8">8 GB</option><option value="12">12 GB</option><option value="16" selected>16 GB</option><option value="24">24 GB</option><option value="32">32 GB</option><option value="64">64 GB o más</option></select></label>
+        <label for="up-disk">Disco<select id="up-disk"><option value="ssd" selected>Tengo SSD</option><option value="hdd">Solo disco duro (HDD)</option></select></label>
+        <label for="up-psu">Fuente<select id="up-psu"><option value="0">No lo sé</option><option value="450">450 W o menos</option><option value="550" selected>550 W</option><option value="650">650 W</option><option value="750">750 W o más</option></select></label>
+        <label for="up-case">Mi caja admite gráficas de<select id="up-case"><option value="0" selected>No lo sé</option><option value="240">Hasta 240 mm</option><option value="270">Hasta 270 mm</option><option value="300">Hasta 300 mm</option><option value="330">Hasta 330 mm</option><option value="360">Hasta 360 mm</option><option value="400">Más de 360 mm</option></select></label>
+      </div>
+      <p class="qhint upfoot">¿No sabes qué tienes? En Windows, abre el Administrador de tareas y mira la pestaña Rendimiento.</p>
+    </div>
+    <div class="q" id="cmpForm" hidden>
+      <span class="qlab" id="lab-cmp">¿Qué quieres comparar?<small class="qhint">sube una captura de Amazon, pega el título o elige el modelo</small></span>
+      <div class="opts" role="group" aria-labelledby="lab-cmp" id="cmpKind">
+        <button class="opt" data-ck="gpu" aria-pressed="true"><span class="box"></span><span>Dos gráficas</span></button>
+        <button class="opt" data-ck="cpu" aria-pressed="false"><span class="box"></span><span>Dos procesadores</span></button>
+        <button class="opt" data-ck="pc" aria-pressed="false"><span class="box"></span><span>Dos PCs enteros</span></button>
+        <button class="opt" data-ck="ram" aria-pressed="false"><span class="box"></span><span>Dos memorias RAM</span></button>
+      </div>
+      <div class="cmp-sides" id="cmpSides"></div>
+      <p class="qhint upfoot">La foto se lee en tu propio móvil u ordenador: no se sube a ningún sitio.</p>
+    </div>
+    <div class="quiz-nav" id="quizNav"><button type="button" class="share-btn" id="quizBack">Atrás</button><span class="quiz-count" id="quizCount"></span><button type="button" class="btn-buy quiz-next" id="quizNext">Siguiente</button></div>
+  </div>
+
+  <section class="result" id="result"><noscript><p>Para calcular tu PC necesitas tener JavaScript activado en el navegador.</p></noscript></section>
+  <p class="sr" id="announce" aria-live="polite"></p>
+
+  <section class="games" aria-labelledby="games-h">
+    <h2 id="games-h" class="sr">Comprobaciones</h2>
+    <div id="checksOut"></div>
+  </section>
+
+  <nav class="ready" aria-labelledby="ready-h">
+    <h2 id="ready-h">Más cosas que te pueden servir</h2>
+    <p class="ready-lab">PC gaming por</p>
+    <ul class="ready-budgets">
+      <li><a href="mejor-pc-gaming-800-euros.html" aria-label="PC gaming por 800 €">800 €</a></li>
+      <li><a href="mejor-pc-gaming-1000-euros.html" aria-label="PC gaming por 1000 €">1000 €</a></li>
+      <li><a href="mejor-pc-gaming-1200-euros.html" aria-label="PC gaming por 1200 €">1200 €</a></li>
+      <li><a href="mejor-pc-gaming-1500-euros.html" aria-label="PC gaming por 1500 €">1500 €</a></li>
+      <li><a href="pc-gaming-1440p-2000-euros.html" aria-label="PC para 1440p por 2000 €">2000 €</a></li>
+    </ul>
+    <p class="ready-lab">PC para jugar a</p>
+    <ul class="ready-budgets">
+      <li><a href="pc-para-fortnite.html">Fortnite</a></li>
+      <li><a href="pc-para-valorant.html">Valorant</a></li>
+      <li><a href="pc-para-cs2.html">Counter-Strike 2</a></li>
+      <li><a href="pc-para-warzone.html">Warzone</a></li>
+      <li><a href="pc-para-gta-5.html">GTA V</a></li>
+      <li><a href="pc-para-fc-26.html">EA Sports FC 26</a></li>
+      <li><a href="pc-para-minecraft.html">Minecraft</a></li>
+      <li><a href="pc-para-marvel-rivals.html">Marvel Rivals</a></li>
+    </ul>
+    <ul>
+      <li><a href="ranking-graficas-procesadores.html">Ranking de gráficas y procesadores</a></li>
+      <li><a href="comparar-graficas-y-pc.html">Comparar dos piezas</a></li>
+      <li><a href="pc-para-ia.html">PC para IA</a></li>
+      <li><a href="pc-para-editar-video.html">PC para editar vídeo</a></li>
+      <li><a href="pc-para-streaming.html">PC para hacer streaming</a></li>
+      <li><a href="pc-para-estudiar.html">PC para estudiar</a></li>
+      <li><a href="guia-montaje.html">Cómo montar un PC</a></li>
+    </ul>
+  </nav>
+
+  <section class="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">Preguntas que me hacen mucho</h2>
+    <details><summary>¿Sale más barato montarlo yo o comprarlo montado?</summary>
+      <p>En los PCs baratos, a veces un PC montado cuesta casi lo mismo que sus piezas, porque las marcas compran al por mayor. El truco es que suelen ahorrar en la fuente, la placa o la RAM. A partir de unos 1000 €, montarlo tú suele salir mejor y eliges cada pieza.</p></details>
+    <details><summary>¿Por qué la RAM y las gráficas están tan caras?</summary>
+      <p>Los centros de datos de inteligencia artificial se están quedando gran parte de la memoria que se fabrica. Desde finales de 2025, la DDR5 ha llegado a costar varias veces más que antes, y eso arrastra a las gráficas. Por eso aquí 16 GB suelen bastar para jugar y el dinero va a la gráfica.</p></details>
+    <details><summary>¿AMD o Intel?</summary>
+      <p>Para jugar, los AMD con "X3D" son ahora mismo los más rápidos, y su plataforma AM5 seguirá recibiendo procesadores nuevos. Intel va muy bien en calidad-precio con el i5-14400F. Si te da igual, deja "Me da igual" y la web elige el que más rinde por tu dinero.</p></details>
+    <details><summary>¿Es difícil montar un PC?</summary>
+      <p>No. Con un destornillador y paciencia se monta en unas 2 o 3 horas. Tienes la <a href="guia-montaje.html">guía paso a paso</a> con los fallos típicos que conviene evitar.</p></details>
+    <details><summary>¿Seguro que la gráfica cabe en la caja?</summary>
+      <p>Sí. Para cada gráfica tomo el largo de sus modelos más largos, no el de la versión más corta, y solo recomiendo cajas cuyo fabricante admite al menos 15 mm más. También compruebo que el disipador y el radiador entran. Si cambias tu PC por piezas, en "Mejorar el mío" puedes decirme cuánto admite tu caja y solo te enseño gráficas que quepan.</p></details>
+    <details><summary>¿Qué fuente de alimentación necesito?</summary>
+      <p>La web la calcula sola según lo que gastan el procesador y la gráfica, con margen. Lo importante es que sea de una marca conocida y con certificado 80 Plus. Una fuente mala es lo único que puede estropear todo lo demás.</p></details>
+    <details><summary>¿Los precios son exactos?</summary>
+      <p>Son estimaciones que reviso a menudo, por eso salen en rango. El precio que vale es el de la tienda el día que compras: pulsa el botón de cada pieza para verlo.</p></details>
+    <details><summary>¿Cómo gana dinero esta web?</summary>
+      <p data-aff>Algunos enlaces son de afiliado: si compras desde ellos, la tienda me da una pequeña comisión y a ti no te cuesta nada más. No cambia lo que recomiendo.</p><p data-noaff hidden>De momento no gana nada: es gratis, sin anuncios y sin registro. Los enlaces llevan a la tienda tal cual.</p></details>
+  </section>
+
+  <div class="about">
+    <div>
+      <h2>Por qué hice esta web</h2>
+      <p>Me encantan los PCs y la IA, y este año montar uno se ha vuelto un lío: la RAM y las gráficas han subido muchísimo y es fácil gastar de más en la pieza equivocada.</p>
+      <p>Esta web es lo que yo le diría a un amigo que me pregunta qué comprarse. Si ves un precio que ya no cuadra, es que ha cambiado hace poco: los reviso a menudo.</p>
+    </div>
+  </div>
+</div>
+
+<div class="fine">
+  <p>Precios orientativos en tiendas españolas. Los precios, los FPS y lo que va bien o mal son estimaciones para comparar, no medidas reales.</p>
+  <p data-aff>Algunos enlaces son de afiliado: si compras desde ellos, la tienda me paga una pequeña comisión y a ti no te cuesta nada más. En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
+  <p>Contexto de precios: <a href="https://www.profesionalreview.com/2026/10/14/ddr5-precios-aumentaron-500-en-un-ano/amp/" target="_blank" rel="noopener">subida de la DDR5 (Profesional Review)</a> y <a href="https://www.muycomputer.com/2026/08/12/las-geforce-rtx-50-han-subido-de-precio-una-rtx-5060-ya-cuesta-mas-de-450-euros/" target="_blank" rel="noopener">subida de las gráficas (MuyComputer)</a>.</p>
+  <p class="legal-links"><a href="aviso-legal.html">Aviso legal</a> <a href="privacidad.html">Privacidad</a></p>
+</div>
+
+<div class="buybar" id="buybar" hidden></div>
+<script src="config.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
