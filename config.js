@@ -12,13 +12,13 @@
      esas páginas lo marcan en amarillo para que no se te olvide.
 */
 window.MONTATUPC_CONFIG = {
-  amazonTag: "",
+  amazonTag: "montatupc0c-21",
   ebayCampid: "",
   goatcounter: "",
-  titular: "",   // nombre y apellidos de tu padre o tu madre
-  nif: "",       // su DNI, con la letra
+  titular: "Maria Paz Lamban Aranda",   // 
+  nif: "25483616F",       // su DNI, con la letra
   domicilio: "", // opcional: si lo dejas vacío no sale (mira el LEEME)
-  correo: "",    // un correo de contacto
+  correo: "montatupc.web@gmail.com",    // un correo de contacto
   fecha: "noviembre de 2026",  // cámbialo cuando revises los precios
   // Aviso de ofertas que no tienen fecha fija (Prime Day, Fiesta de Ofertas Prime...). Black Friday, Navidad, Reyes,
   // rebajas y vuelta al cole salen solos. Ejemplo: oferta: {texto: "Prime Day: mira el precio de hoy en Amazon.", desde: "2027-07-08", hasta: "2027-07-11"}
