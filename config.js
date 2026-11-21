@@ -13,7 +13,7 @@
 */
 window.MONTATUPC_CONFIG = {
   amazonTag: "montatupc0c-21",
-  ebayCampid: "",
+  ebayCampid: "5339257002",
   goatcounter: "",
   titular: "Maria Paz Lamban Aranda",   // 
   nif: "25483616F",       // su DNI, con la letra
